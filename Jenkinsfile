@@ -16,8 +16,17 @@ pipeline {
       }
     }
     stage('e') {
-      steps {
-        sh 'ls'
+      parallel {
+        stage('e') {
+          steps {
+            sh 'ls'
+          }
+        }
+        stage('') {
+          steps {
+            echo 'aaa'
+          }
+        }
       }
     }
   }
